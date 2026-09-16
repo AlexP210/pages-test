@@ -129,15 +129,26 @@ objective ← task reward + belief supervision</code></pre>
           </figure>
         </div>
 
-        <div class="stats stats-duo">
-          <div class="stat-box">
-            <strong>64.7%</strong>
-            <span>best baseline</span>
+        <div class="perf-chart" role="img"
+          aria-label="Average success rate: best baseline 64.7 percent, SSB-Flow 93.1 percent, an absolute gap of 28.4 points">
+          <div class="perf-row">
+            <span class="perf-label">Best baseline</span>
+            <div class="perf-track">
+              <div class="perf-fill baseline" style="width: 64.7%">
+                <span class="perf-value">64.7%</span>
+              </div>
+            </div>
           </div>
-          <div class="stat-box">
-            <strong>93.1%</strong>
-            <span>SSB-Flow</span>
+          <div class="perf-row">
+            <span class="perf-label">SSB-Flow</span>
+            <div class="perf-track">
+              <div class="perf-fill ours" style="width: 93.1%">
+                <span class="perf-value">93.1%</span>
+              </div>
+            </div>
           </div>
+          <p class="perf-note">Average success rate across four manipulation tasks — a <strong>+28.4 point</strong>
+            absolute gap.</p>
         </div>
 
         <figure class="figure-panel">
