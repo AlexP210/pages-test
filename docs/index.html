@@ -42,7 +42,7 @@
             <a class="button secondary" href="#results">View Results</a>
           </div>
           <div class="meta-row">
-            <span>ICRA-style paper website</span>
+            <span>ICRA 2027 Submission</span>
             <span>Simulation-guided policy learning</span>
           </div>
         </div>
@@ -91,17 +91,17 @@ objective ← task reward + uncertainty-aware exploration</code></pre>
         <div class="card-grid">
           <article class="card">
             <h3>Privileged supervision</h3>
-            <p>The simulator supplies task-relevant hidden states that the learner never directly observes at
-              deployment.</p>
+            <p>The simulator supervises the actor's belief over task-relevant hidden physical parameters.
+            </p>
           </article>
           <article class="card">
             <h3>Belief flow</h3>
-            <p>SSB-Flow approximates a posterior over physical quantities from image and proprioceptive interaction
-              history.</p>
+            <p>SSB-Flow's flow-matching posterior approximates the full multimodal belief.</p>
           </article>
           <article class="card">
             <h3>Uncertainty-aware control</h3>
-            <p>The policy conditions on posterior samples so it can exploit uncertainty when choosing informative
+            <p>The policy conditions on posterior samples to exploit uncertainty
+              when choosing
               actions.</p>
           </article>
         </div>
@@ -140,6 +140,23 @@ objective ← task reward + uncertainty-aware exploration</code></pre>
             accurately estimated, the third interaction successfully
             flips the object. [5] The first frame in which the hidden color is observed by the agent. [6] Object is
             accurately sorted.
+          </figcaption>
+        </figure>
+
+        <figure class="figure-panel">
+          <img src="balance_com_timeline.png"
+            alt="Timeline of a robot balancing a multicolored rod on a pedestal by estimating its center of mass." />
+          <figcaption>
+            SSB-Flow uses a deep flow-matching-based state estimator, supervised by a simulator, to efficiently inform
+            a policy about uncertainty in the environment. Interactions help the state estimator to estimate physical
+            properties, in this case, the unknown Center-of-Mass (COM) of the multicolored rod, which enables the
+            policy to balance it on the blue pedestal. Top: A sequence of views during one episode. Bottom-left: The
+            deep-state estimator's belief samples for the COM. Bottom-right: The path of the estimated COM over the
+            course of the episode. (1) Before contact, the COM belief is near-uniform over the rod's extent. (2) The
+            first grasp and lift collapses the belief along the rod's long axis (x). (3) Re-grasping the upright rod
+            begins to resolve the remaining lateral (y) and height (z) uncertainty. (4) The COM is now sufficiently
+            localized, and the agent selects a grasp offset from the geometric center. (5) The agent transports the
+            rod to the pedestal. (6) It commits to the placement and successfully balances the rod.
           </figcaption>
         </figure>
       </div>
