@@ -123,7 +123,7 @@ h1 {
   justify-content: center;
   min-height: 46px;
   padding: 0.78rem 1.3rem;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: 700;
   letter-spacing: 0.01em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -158,46 +158,21 @@ h1 {
 .meta-row span {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.45rem 0.75rem;
 }
 
 .hero-card {
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 1.2rem;
   box-shadow: var(--shadow);
 }
 
-.mock-window {
-  display: flex;
-  gap: 0.5rem;
-  padding-bottom: 0.9rem;
-}
-
-.mock-window span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #d1d5db;
-}
-
-.mock-window span:first-child {
-  background: #f87171;
-}
-
-.mock-window span:nth-child(2) {
-  background: #fbbf24;
-}
-
-.mock-window span:last-child {
-  background: #34d399;
-}
-
 .code-block {
   background: linear-gradient(180deg, rgba(28, 58, 102, 0.06), rgba(255, 255, 255, 0.9));
-  border-radius: 10px;
+  border-radius: 4px;
   border: 1px solid rgba(11, 31, 58, 0.09);
   padding: 1rem 1.1rem;
   overflow-x: auto;
@@ -239,7 +214,7 @@ h2 {
 .card {
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 1.5rem;
   box-shadow: 0 14px 32px rgba(11, 31, 58, 0.05);
 }
@@ -264,7 +239,7 @@ h2 {
 .stat-box {
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 1.4rem 1rem;
   text-align: center;
   box-shadow: 0 12px 28px rgba(11, 31, 58, 0.05);
@@ -287,7 +262,7 @@ h2 {
   margin: 2.25rem 0 0;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 1rem;
   box-shadow: 0 18px 38px rgba(11, 31, 58, 0.06);
 }
@@ -295,7 +270,7 @@ h2 {
 .figure-panel img {
   display: block;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 3px;
   border: 1px solid rgba(11, 31, 58, 0.08);
   background: #f8fafc;
 }
