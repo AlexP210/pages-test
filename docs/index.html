@@ -1,92 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pages Test</title>
-    <meta
-      name="description"
-      content="A simple GitHub Pages site for a project landing page."
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav">
-        <div class="brand">Pages Test</div>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#features">Features</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <p class="eyebrow">GitHub Pages starter</p>
-            <h1>Simple, fast, and ready to publish.</h1>
-            <p class="lead">
-              This is a lightweight static website built for GitHub Pages with a
-              clean layout and responsive styling.
-            </p>
-            <div class="cta-row">
-              <a class="button primary" href="#features">See Features</a>
-              <a class="button secondary" href="#contact">Get in Touch</a>
-            </div>
-          </div>
-          <div class="hero-card">
-            <div class="mock-window">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="code-block">
-              <pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;
-&lt;p&gt;This site is live on GitHub Pages.&lt;/p&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSB-Flow | Simulator-Supervised Belief Flow</title>
+  <meta name="description"
+    content="Paper website for SSB-Flow, a simulator-supervised belief flow method for partially observed manipulation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-      <section id="about" class="section">
-        <div class="container narrow">
-          <h2>About this project</h2>
-          <p>
-            This repository is configured as a basic static site, perfect for a
-            personal landing page, portfolio, or a small project website.
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">SSB-Flow</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Robotics · Manipulation · Belief Learning</p>
+          <h1>Learning hidden physical properties from interaction.</h1>
+          <p class="lead">
+            Simulator-Supervised Belief Flow (SSB-Flow) trains a partially observing robotic policy to infer
+            task-relevant physical quantities from interaction history, using image and proprioceptive observations to
+            guide informative manipulation.
           </p>
-        </div>
-      </section>
-
-      <section id="features" class="section muted">
-        <div class="container">
-          <h2>What you get</h2>
-          <div class="card-grid">
-            <article class="card">
-              <h3>Zero build step</h3>
-              <p>Plain HTML and CSS run easily on GitHub Pages without any setup.</p>
-            </article>
-            <article class="card">
-              <h3>Responsive design</h3>
-              <p>The layout adapts smoothly from mobile screens to larger desktops.</p>
-            </article>
-            <article class="card">
-              <h3>Easy to customize</h3>
-              <p>Update the text, colors, and content to match your brand or project.</p>
-            </article>
+          <div class="cta-row">
+            <a class="button primary" href="#abstract">Read Abstract</a>
+            <a class="button secondary" href="#results">View Results</a>
+          </div>
+          <div class="meta-row">
+            <span>ICML-style paper website</span>
+            <span>Simulation-guided policy learning</span>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer id="contact" class="site-footer">
-      <div class="container footer-row">
-        <p>© 2026 Pages Test</p>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <div class="hero-card">
+          <div class="mock-window">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="code-block">
+            <pre><code>belief_state ← posterior(samples | history)
+policy(a | obs, belief_state)
+objective ← task reward + uncertainty-aware exploration</code></pre>
+          </div>
+        </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <section id="abstract" class="section">
+      <div class="container narrow">
+        <div class="section-label">Abstract</div>
+        <h2>How can simulation efficiently teach a sensorimotor policy to gather information?</h2>
+        <p>
+          Hidden physical properties, such as mass and friction, substantially affect how a robot can optimally
+          manipulate objects. A privileged teacher directly accesses these properties, so its actions generally do not
+          demonstrate how to acquire missing information, creating a mismatch for a partially-observing learner, which
+          does not observe the privileged state during training or deployment.
+        </p>
+        <p>
+          We instead use a simulator to simultaneously supervise a learned approximation to the belief state and train a
+          policy conditioned on that approximation by reinforcement learning. Our method, Simulator-Supervised Belief
+          Flow (SSB-Flow), learns a sampleable posterior over task-relevant physical quantities from interaction
+          history, using high-dimensional image input alongside proprioceptive input. The policy consumes an encoding of
+          posterior samples, allowing it to use estimated uncertainty when selecting actions.
+        </p>
+        <p>
+          We compare SSB-Flow to three student-teacher approaches originally designed to use privileged information, as
+          well as a strong recurrent RL baseline. Across four challenging manipulation tasks, SSB-Flow achieves the
+          highest success rate on every task, averaging 93.1% versus 64.7% for the strongest alternative, an absolute
+          gap of 28.4%. These results support supervising physical-state inference as an effective use of privileged
+          information for partially observed manipulation.
+        </p>
+      </div>
+    </section>
+
+    <section id="method" class="section muted">
+      <div class="container">
+        <div class="section-label">Method</div>
+        <h2>Estimating belief, not just behavior.</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Privileged supervision</h3>
+            <p>The simulator supplies task-relevant hidden states that the learner never directly observes at
+              deployment.</p>
+          </article>
+          <article class="card">
+            <h3>Belief flow</h3>
+            <p>SSB-Flow approximates a posterior over physical quantities from image and proprioceptive interaction
+              history.</p>
+          </article>
+          <article class="card">
+            <h3>Uncertainty-aware control</h3>
+            <p>The policy conditions on posterior samples so it can exploit uncertainty when choosing informative
+              actions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container narrow">
+        <div class="section-label">Results</div>
+        <h2>Consistent gains across difficult manipulation tasks.</h2>
+        <div class="stats">
+          <div class="stat-box">
+            <strong>93.1%</strong>
+            <span>average success rate</span>
+          </div>
+          <div class="stat-box">
+            <strong>64.7%</strong>
+            <span>strongest baseline</span>
+          </div>
+          <div class="stat-box">
+            <strong>+28.4%</strong>
+            <span>absolute improvement</span>
+          </div>
+        </div>
+
+        <figure class="figure-panel">
+          <img src="belief_visual_formatted.jpg" alt="Belief estimates over interaction on the HIDDEN-COLOR task." />
+          <figcaption>
+            Physical-state estimates during interaction on the HIDDEN-COLOR task. [1] Before any contact, mass and
+            hidden-color beliefs are near uniform,
+            and the friction beliefs sit at their prior — notably underestimating the true static friction. [2] The
+            first contact and failed flip sharpens the static-friction belief
+            to its true value; the mass belief narrows but remains overestimated, while dynamic friction temporarily
+            overshoots. [3] A second failed flip collapses both
+            the mass and dynamic-friction beliefs onto their true values. [4] With the physical parameters now
+            accurately estimated, the third interaction successfully
+            flips the object. [5] The first frame in which the hidden color is observed by the agent. [6] Object is
+            accurately sorted.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 SSB-Flow</p>
+      <a href="mailto:authors@example.edu">authors@example.edu</a>
+    </div>
+  </footer>
+</body>
+
 </html>
